@@ -57,6 +57,7 @@
   details:first-of-type { border-top: 0; }
   summary { cursor: pointer; font-weight: 600; }
   details ol { margin: 8px 0 0; padding-left: 20px; color: var(--sub); font-size: .9rem; }
+  #c-mail, #c-tw { white-space: normal; word-break: break-all; text-align: right; }
   footer { text-align: center; color: var(--sub); font-size: .78rem; margin-top: 20px; }
 </style>
 </head>
@@ -66,7 +67,9 @@
   <!-- ✏️ 제목과 감사 문구 수정 -->
   <h1>구매해주셔서 감사합니다 💙</h1>
   <p class="thanks">키링과 함께 즐겁게 사용해주세요.
-특전 배경화면을 선물로 드려요!</p>
+특전 배경화면을 선물로 드려요!
+
+- 로하 드림 -</p>
 
   <!-- 미리보기: mobile/ui.mp4, mobile/vivi.mp4 (없으면 안내 문구만 보임) -->
   <div class="previews">
@@ -130,8 +133,15 @@
     </details>
   </section>
 
+  <section>
+    <h2>💌 문의 · 연락처</h2>
+    <div class="row"><b>메일</b><a class="btn" id="c-mail" href="#"></a></div>
+    <div class="row"><b>트위터</b><a class="btn" id="c-tw" href="#" target="_blank" rel="noopener"></a></div>
+    <p class="note">다운로드가 안 되거나 궁금한 점이 있으면 편하게 연락주세요.</p>
+  </section>
+
   <!-- ✏️ 하단 문구 수정 -->
-  <footer>이 페이지는 구매자분들께만 안내드리는 특전 페이지예요.<br>개인적으로만 사용해주세요.</footer>
+  <footer>이 페이지는 구매자분들께만 안내드리는 특전 페이지예요.<br>개인적으로만 사용해주세요.<br><br>made by. 로하</footer>
 
 </main>
 
@@ -140,6 +150,13 @@
   document.querySelectorAll('.pv').forEach(function (v) {
     v.addEventListener('error', function () { v.style.display = 'none'; });
   });
+
+  // ✏️ 연락처는 여기 두 줄만 수정하세요 (트위터 아이디는 @ 없이)
+  var EMAIL = 'bpnga2000@gmail.com';
+  var TWITTER = 'rororoha_68';
+  var mail = document.getElementById('c-mail'), tw = document.getElementById('c-tw');
+  mail.href = 'mailto:' + EMAIL;  mail.textContent = EMAIL;
+  tw.href = 'https://x.com/' + TWITTER;  tw.textContent = '@' + TWITTER;
 
   // 접속한 기기에 맞는 안내를 자동으로 펼침
   var ua = navigator.userAgent;
